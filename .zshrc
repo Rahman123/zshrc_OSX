@@ -2,14 +2,13 @@
 export ZSH=/Users/wade.wegner/.oh-my-zsh
 
 ZSH_THEME="wadewegner"
-
 DEFAULT_USER="wade.wegner"
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git bower bundler git-hubflow npm node)
+plugins=(git colored-man-pages heroku bower bundler git-hubflow npm node zsh-autosuggestions zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -76,3 +75,12 @@ export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_111.jdk/Contents/Hom
 # sfdx
 export FORCE_SPINNER_DELAY=100
 export FORCE_SHOW_SPINNER=true
+
+zstyle ':completion:*' menu yes select
+
+# add custom completion scripts
+fpath=(~/Projects/Github/WadeWegner/salesforce-cli-zsh-completion $fpath)
+
+# compsys initialization
+autoload -U compinit
+compinit
